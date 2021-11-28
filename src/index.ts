@@ -6,10 +6,11 @@ const express = require('express')
 
 const app = express();
 
+const converter = createConverter({
+    puppeteer: { args: ['--no-sandbox'] }
+});
+
 const convert = async (svg: string) => {
-    const converter = createConverter({
-        puppeteer: { args: ['--no-sandbox'] }
-    });
     const image = await converter.convert(svg)
     return image
 }
@@ -29,6 +30,6 @@ app.get('/', async (req: any, res: any) => {
     }
 });
 
-app.listen(process.env.PORT || 3000, () =>  {
+app.listen(process.env.PORT || 1234, () =>  {
     console.log('The server is running')
 })
