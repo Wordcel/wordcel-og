@@ -1,10 +1,18 @@
 // @ts-ignore
-const { convert } = require('convert-svg-to-png');
+const { createConverter } = require('convert-svg-to-png');
 const { OgSVG } = require('./svg');
 const imageDataURI = require('image-data-uri');
 const express = require('express')
 
 const app = express();
+
+const convert = async (svg: string) => {
+    const converter = createConverter({
+        puppeteer: { args: ['--no-sandbox'] }
+    });
+    const image = await converter.convert(svg)
+    return image
+}
 
 app.get('/', async (req: any, res: any) => {
     if (!req.query.name || !req.query.link || !req.query.image) return
