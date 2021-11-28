@@ -7,6 +7,7 @@ const express = require('express')
 const app = express();
 
 app.get('/', async (req: any, res: any) => {
+    if (!req.query.name || !req.query.link || !req.query.image) return
     try {
         const imageData = await imageDataURI.encodeFromURL(req.query.image);
         const png = await convert(
