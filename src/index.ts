@@ -30,6 +30,6 @@ app.get('/', async (req: any, res: any) => {
     }
 });
 
-app.listen(process.env.PORT || 1234, () =>  {
+app.listen(process.env.PORT || 80, () =>  {
     console.log('The server is running')
 })
