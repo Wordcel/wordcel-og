@@ -15,12 +15,14 @@ const convert = async (svg: string) => {
     return image
 }
 
-app.get('/', async (req: any, res: any) => {
-    if (!req.query.name || !req.query.link || !req.query.image) return
+app.get('/:name/:link/:image', async (req: any, res: any) => {
+    if (!req.params.name || !req.params.link || !req.params.image) return
     try {
-        const imageData = await imageDataURI.encodeFromURL(req.query.image);
+        const imageURLBuffer = Buffer.from(req.params.image, 'base64')
+        const imageURL = imageURLBuffer.toString()
+        const imageData = await imageDataURI.encodeFromURL(imageURL);
         const png = await convert(
-            OgSVG(req.query.name, req.query.link, imageData)
+            OgSVG(req.params.name, req.params.link, imageData)
         );
         res.set('Content-Type', 'image/png');
         res.send(png);
