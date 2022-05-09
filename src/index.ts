@@ -22,14 +22,15 @@ const convert = async (svg: string) => {
   return image
 }
 
-app.get('/article/:title/:name/:image', async (req, res) => {
-  if (!req.params.title || !req.params.name || !req.params.image) return
+app.get('/article/:data', async (req, res) => {
+  const base64Data = req.params.data;
+  const dataString = Buffer.from(base64Data, 'base64').toString();
   try {
-    const imageURLBuffer = Buffer.from(req.params.image, 'base64')
-    const imageURL = imageURLBuffer.toString()
-    const imageData = await imageDataURI.encodeFromURL(imageURL);
+    const data = JSON.parse(dataString);
+    if (!data.title || !data.name || !data.image) return
+    const imageData = await imageDataURI.encodeFromURL(data.image);
     const png = await convert(
-      ArticleOG(req.params.title, req.params.name, imageData)
+      ArticleOG(data.title, data.name, imageData)
     );
     res.set('Content-Type', 'image/png');
     res.send(png);
@@ -41,14 +42,15 @@ app.get('/article/:title/:name/:image', async (req, res) => {
   }
 })
 
-app.get('/:name/:username/:bio/:image', async (req, res) => {
-  if (!req.params.name || !req.params.username || !req.params.bio || !req.params.image) return
+app.get('/user/:data', async (req, res) => {
+  const base64Data = req.params.data;
+  const dataString = Buffer.from(base64Data, 'base64').toString();
   try {
-    const imageURLBuffer = Buffer.from(req.params.image, 'base64')
-    const imageURL = imageURLBuffer.toString()
-    const imageData = await imageDataURI.encodeFromURL(imageURL);
+    const data = JSON.parse(dataString);
+    if (!data.name || !data.username || !data.bio || !data.image) return
+    const imageData = await imageDataURI.encodeFromURL(data.image);
     const png = await convert(
-      ProfileOG(req.params.name, req.params.username, req.params.bio, imageData)
+      ProfileOG(data.name, data.username, data.bio, imageData)
     );
     res.set('Content-Type', 'image/png');
     res.send(png);
