@@ -144,12 +144,16 @@ export const ProfileOG = (
 <path d="M1161.25 424V636" stroke="#F1F1F1" stroke-width="2"/>
 </g>
 <rect x="106" y="91" width="989" height="439" fill="white"/>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="55" font-weight="bold" letter-spacing="0em"><tspan x="465" y="250.5">${name}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="55" font-weight="bold" letter-spacing="0em"><tspan x="465" y="250.5">${
+  name.length > 20 ? name.substring(0, 20) + '...' : name
+}</tspan></text>
 <text fill="#8497A5" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="31" font-weight="500" letter-spacing="0em"><tspan x="465" y="306.273">@${username}</tspan></text>
 <rect x="465" y="174" width="75" height="11" fill="#2395FF"/>
 <text fill="#434343" fill-opacity="0.5" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="29" letter-spacing="0em">
   <tspan x="465" y="380.045">${bio.substring(0, 40)}</tspan>
-  <tspan x="465" y="415.045">${bio.substring(40, 75)}...</tspan>
+  <tspan x="465" y="415.045">${
+    bio.substring(40, 75).length > 75 ? bio.substring(40, 75) + '...' : bio.substring(40, 75)
+  }</tspan>
 </text>
 <rect x="159" y="169" width="253" height="253" rx="16" fill="url(#pattern0)"/>
 </g>
