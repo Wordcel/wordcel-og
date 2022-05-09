@@ -9,7 +9,10 @@ const path = require('path')
 const app = express();
 
 const converter = createConverter({
-  puppeteer: { args: ['--no-sandbox'] }
+  puppeteer: {
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  }
 });
 
 const convert = async (svg: string) => {
