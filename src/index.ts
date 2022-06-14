@@ -1,5 +1,6 @@
 // @ts-expect-error
 import { createConverter } from 'convert-svg-to-png';
+import { InviteOG } from './invite';
 import { ProfileOG } from './profile';
 import { ArticleOG } from './article';
 // @ts-expect-error
@@ -7,7 +8,6 @@ import imageDataURI from 'image-data-uri';
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-import { InviteOG } from './invite';
 
 const app = express();
 
