@@ -7,6 +7,7 @@ import imageDataURI from 'image-data-uri';
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import { InviteOG } from './invite';
 
 const app = express();
 
@@ -51,6 +52,22 @@ app.get('/user/:data', async (req, res) => {
     const imageData = await imageDataURI.encodeFromURL(data.image);
     const png = await convert(
       ProfileOG(data.name, data.username, data.bio, imageData)
+    );
+    res.set('Content-Type', 'image/png');
+    res.send(png);
+  } catch (e) {
+    console.error(e)
+    res.set('Content-Type', 'image/png');
+    const defaultOG = fs.readFileSync(path.join(__dirname, '..', 'static', 'meta.png'))
+    res.send(defaultOG)
+  }
+});
+
+app.get('/invite/:name', async (req, res) => {
+  try {
+    const name = req.params.name;
+    const png = await convert(
+      InviteOG(name)
     );
     res.set('Content-Type', 'image/png');
     res.send(png);
