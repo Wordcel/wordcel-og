@@ -24,7 +24,7 @@ const convert = async (svg: string) => {
 }
 
 app.get('/article/:data', async (req, res) => {
-  const base64Data = req.params.data;
+  const base64Data = decodeURIComponent(req.params.data);
   const dataString = Buffer.from(base64Data, 'base64').toString();
   try {
     const data = JSON.parse(dataString);
@@ -44,7 +44,7 @@ app.get('/article/:data', async (req, res) => {
 })
 
 app.get('/user/:data', async (req, res) => {
-  const base64Data = req.params.data;
+  const base64Data = decodeURIComponent(req.params.data);
   const dataString = Buffer.from(base64Data, 'base64').toString();
   try {
     const data = JSON.parse(dataString);
