@@ -164,7 +164,6 @@ export const ProfileOG = (
     <rect x="159" y="169" width="253" height="253" rx="16" fill="url(#pattern0)"/>
     </g>
     <defs>
-    <style type="text/css">@import url('http://fonts.googleapis.com/css?family=Inter');</style>
     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
     <use xlink:href="#image0_5_6515" transform="scale(0.005)"/>
     </pattern>

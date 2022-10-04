@@ -1,5 +1,4 @@
-// @ts-expect-error
-import { createConverter } from 'convert-svg-to-png';
+import sharp from 'sharp';
 import { InviteOG } from './invite';
 import { ProfileOG } from './profile';
 import { ArticleOG } from './article';
@@ -11,16 +10,9 @@ import path from 'path';
 
 const app = express();
 
-const converter = createConverter({
-  puppeteer: {
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  }
-});
-
 const convert = async (svg: string) => {
-  const image = await converter.convert(svg)
-  return image
+  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+  return png;
 }
 
 app.get('/article/:data', async (req, res) => {

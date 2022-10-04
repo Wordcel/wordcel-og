@@ -8,7 +8,7 @@ export const InviteOG = (
       <g style="mix-blend-mode:multiply">
       <rect x="634" y="114" width="496" height="402" fill="url(#pattern0)"/>
       </g>
-      <text fill="black" fill-opacity="0.85" xml:space="preserve" style="white-space: pre" font-family="Source Serif Pro" font-size="50" letter-spacing="0em"><tspan x="83" y="258.075">has invited you to the </tspan><tspan x="83" y="321.075">future of publishing</tspan></text>
+      <text fill="black" fill-opacity="0.85" xml:space="preserve" style="white-space: pre" font-family="'Source Serif Pro'" font-size="50" letter-spacing="0em"><tspan x="83" y="258.075">has invited you to the </tspan><tspan x="83" y="321.075">future of publishing</tspan></text>
       <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Source Serif Pro" font-size="50" font-weight="bold" letter-spacing="0em"><tspan x="83" y="195.075">${name}</tspan></text>
       <g clip-path="url(#clip1_178_2)">
       <g clip-path="url(#clip2_178_2)">
@@ -168,7 +168,6 @@ export const InviteOG = (
       <path d="M331.622 437.707V400.173H338.517V437.707H331.622Z" fill="black"/>
       </g>
       <defs>
-      <style type="text/css">@import url('http://fonts.googleapis.com/css?family=Source+Serif+Pro');</style>
       <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
       <use xlink:href="#image0_178_2" transform="scale(0.00344887 0.00425532)"/>
       </pattern>

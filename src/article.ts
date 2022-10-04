@@ -66,7 +66,6 @@ export const ArticleOG = (
     <path d="M1113.14 514.313L1096.97 521.987C1096.05 522.426 1095.67 523.501 1096.13 524.389L1104.11 539.933C1104.57 540.821 1105.68 541.185 1106.61 540.747L1122.78 533.072C1123.7 532.634 1124.08 531.558 1123.62 530.67L1115.64 515.127C1115.18 514.239 1114.07 513.874 1113.14 514.313Z" fill="#2E86DE"/>
     </g>
     <defs>
-    <style type="text/css">@import url('http://fonts.googleapis.com/css?family=Inter');</style>
     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
     <use xlink:href="#image0_5_5460" transform="scale(0.0153846)"/>
     </pattern>
