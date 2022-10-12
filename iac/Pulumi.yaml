@@ -1,0 +1,3 @@
+name: og-image-generator
+runtime: nodejs
+description: OG Image Generator for Wordcel

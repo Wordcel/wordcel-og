@@ -1,0 +1,16 @@
+{
+  "name": "og-img-generator-lambda-layer",
+  "version": "1.0.0",
+  "description": "Opengraph image generator lambda layer for wordcel ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install && zip -r  ../iac/og-img-generator.zip ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "image-data-uri": "^2.0.1",
+    "sharp": "^0.31.1"
+  }
+}

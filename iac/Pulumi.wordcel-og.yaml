@@ -1,0 +1,4 @@
+config:
+  aws:region: us-east-1
+  og-image-generator:includeWWW: "true"
+  og-image-generator:targetDomain: og.wdclclub.com

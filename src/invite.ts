@@ -8,8 +8,8 @@ export const InviteOG = (
       <g style="mix-blend-mode:multiply">
       <rect x="634" y="114" width="496" height="402" fill="url(#pattern0)"/>
       </g>
-      <text fill="black" fill-opacity="0.85" xml:space="preserve" style="white-space: pre" font-family="'Source Serif Pro'" font-size="50" letter-spacing="0em"><tspan x="83" y="258.075">has invited you to the </tspan><tspan x="83" y="321.075">future of publishing</tspan></text>
-      <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Source Serif Pro" font-size="50" font-weight="bold" letter-spacing="0em"><tspan x="83" y="195.075">${name}</tspan></text>
+      <text fill="black" fill-opacity="0.85" xml:space="preserve" style="white-space: pre" font-family="'SourceSerifPro'" font-size="50" letter-spacing="0em"><tspan x="83" y="258.075">has invited you to the </tspan><tspan x="83" y="321.075">future of publishing</tspan></text>
+      <text fill="black" xml:space="preserve" style="white-space: pre" font-family="SourceSerifPro" font-size="50" font-weight="bold" letter-spacing="0em"><tspan x="83" y="195.075">${name}</tspan></text>
       <g clip-path="url(#clip1_178_2)">
       <g clip-path="url(#clip2_178_2)">
       <circle cx="25.5" cy="146.5" r="1.5" transform="rotate(90 25.5 146.5)" fill="black" fill-opacity="0.25"/>
