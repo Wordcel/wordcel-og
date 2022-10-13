@@ -2,11 +2,12 @@ import sharp from 'sharp';
 import { InviteOG } from './invite';
 import { ProfileOG } from './profile';
 import { ArticleOG } from './article';
+
 // @ts-expect-error
 import imageDataURI from 'image-data-uri';
 import fs from 'fs';
 import path from 'path';
-import uploadImage from './uploadImage';
+import { uploadImage, getImage } from './s3';
 
 const convert = async (svg: string) => {
   const png = await sharp(Buffer.from(svg)).png().toBuffer();
@@ -39,6 +40,10 @@ export const lambdaHandler = async (event: any, context: any, callback: any) => 
 
   const uri = request.uri;
   const method = request.method;
+  const s3String = uri.slice(1);
+
+  const exists = await getImage(s3String);
+  if (exists) callback(null, response);
 
   // Split the uri and get the last part
   const uriParts = uri.split('/');
@@ -83,7 +88,7 @@ export const lambdaHandler = async (event: any, context: any, callback: any) => 
       if (!data.name || !data.username || !data.bio || !data.image) return
       const imageData = await imageDataURI.encodeFromURL(data.image);
       const png = await convert(
-        ProfileOG(data.name, data.username, data.bio, imageData) 
+        ProfileOG(data.name, data.username, data.bio, imageData)
       );
       try {
         await uploadImage(png, uri.slice(1));
