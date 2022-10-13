@@ -168,7 +168,7 @@ const lambda = new aws.lambda.Function(
             "static": new pulumi.asset.FileArchive("../static"),
             "fonts": new pulumi.asset.FileArchive("../fonts"),
         }),
-        memorySize: 128,
+        memorySize: 256,
         timeout: 30,
         publish: true,
     }
