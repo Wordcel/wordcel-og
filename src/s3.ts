@@ -1,12 +1,25 @@
 import S3 from 'aws-sdk/clients/s3';
+import { S3_BUCKET_NAME } from './config';
 
-const bucketName = 'og-image-generator-assets-ccc0160';
+const s3 = new S3();
+
+async function getImage(s3key: string) {
+  const params = {
+    Bucket: S3_BUCKET_NAME,
+    Key: s3key
+  }
+  try {
+    await s3.headObject(params).promise();
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 async function uploadImage(buffer: Buffer, s3key: string) {
-  const s3 = new S3();
   const type = 'png';
   const params = {
-    Bucket: bucketName,
+    Bucket: S3_BUCKET_NAME,
     Key: `${s3key}.${type}`,
     Body: buffer,
     ACL: 'public-read',
@@ -18,4 +31,4 @@ async function uploadImage(buffer: Buffer, s3key: string) {
   return s3.upload(params).promise();
 }
 
-export default uploadImage;
+export { uploadImage, getImage };
